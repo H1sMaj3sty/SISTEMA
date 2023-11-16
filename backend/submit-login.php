@@ -1,7 +1,7 @@
 <?php
 include 'koneksi.php';
 
-$username = $_POST['username'];
+$username = htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8');
 $password = $_POST['password'];
 
 $stmt = $koneksi->prepare("SELECT * FROM kredensial WHERE username = ?");

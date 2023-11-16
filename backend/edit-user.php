@@ -2,7 +2,7 @@
 include 'koneksi.php';
 
 $id_user = $_POST['id_user'];
-$username = $_POST['username'];
+$username = htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8');
 $password = $_POST['password'];
 
 $hash = password_hash($password, PASSWORD_DEFAULT);

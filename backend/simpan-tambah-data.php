@@ -1,15 +1,22 @@
 <?php
 include 'koneksi.php';
-$nim = $_POST['nim'];
-$nama = $_POST['nama'];
-$jurusan = $_POST['jurusan'];
-$jenis_kelamin = $_POST['jenis_kelamin'];
-$alamat = $_POST['alamat'];
-$nama_wali = strtolower($_POST['nama_wali']);
+$nim = htmlspecialchars($_POST['nim'], ENT_QUOTES, 'UTF-8');
+$nama = htmlspecialchars($_POST['nama'], ENT_QUOTES,'UTF-8');
+$jurusan = htmlspecialchars($_POST['jurusan'], ENT_QUOTES, 'UTF-8');
+$jenis_kelamin = htmlspecialchars($_POST['jenis_kelamin'], ENT_QUOTES, 'UTF-8');
+$alamat = htmlspecialchars($_POST['alamat'], ENT_QUOTES, 'UTF-8');
+$nama_wali = htmlspecialchars(strtolower($_POST['nama_wali']), ENT_QUOTES, 'UTF-8');
 
 $stmt = $koneksi->prepare("SELECT * FROM wali_mahasiswa WHERE LOWER(nama_wali) = ?");
 $stmt->bind_param('s', $nama_wali);
 $stmt->execute();
+$name_result = $stmt->get_result();
+if (mysqli_num_rows($name_result) < 1) {
+    echo "<script>
+    alert('Parent\\'s name does not exist');window.location.href='../cred/walinotexist.php';
+    </script>";
+    exit();
+}
 
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();

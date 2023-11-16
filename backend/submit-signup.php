@@ -1,6 +1,6 @@
 <?php
 include 'koneksi.php';
-$name = $_POST['username'];
+$name = htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8');
 $password = $_POST['password'];
 $status = "USER";
 
