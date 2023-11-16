@@ -54,11 +54,12 @@ if ($_SESSION['$status'] != "ADMIN") {
 </form>
 
 
-    <div class="mt-4 bg-white shadow-lg rounded p-4">
+<div class="mt-4 bg-white shadow-lg rounded p-4">
 
-    <h2 class="text-2xl font-bold text-center">List Mahasiswa</h2>
+<h2 class="text-2xl font-bold text-center">List Mahasiswa</h2>
 
-    <table class="w-full mt-4">
+<div class="overflow-x-auto mt-4">
+    <table class="table-auto w-full">
         <tr class="rounded bg-red-600 text-white">
             <th class="p-2 rounded-l-md">NO</th>
             <th class="p-2">NIM</th>
@@ -69,7 +70,6 @@ if ($_SESSION['$status'] != "ADMIN") {
             <th class="p-2">ALAMAT MAHASISWA</th>
             <th class="p-2 rounded-r-md">ACTION</th>
         </tr>
-
         <?php
         include './backend/koneksi.php';
         $stmt = $koneksi->prepare('SELECT mahasiswa.*, wali_mahasiswa.nama_wali FROM mahasiswa INNER JOIN wali_mahasiswa ON mahasiswa.id_wali = wali_mahasiswa.id_wali');
@@ -94,32 +94,30 @@ if ($_SESSION['$status'] != "ADMIN") {
             <a href='#' onclick='openModal(event, " . $row['id_mhs'] . ")' class='bg-red-700 hover:bg-gray-600 text-white px-2 py-1 rounded ml-1'>DELETE</a>
             </td>
             </tr>";
-    $no++;
-}
-
-        
+        $no++;
+        }
         ?>
     </table>
 </div>
-
-    <div class="mt-4 bg-white shadow-lg rounded p-4">
+</div>
+<div class="mt-4 bg-white shadow-lg rounded p-4">
 
     <h2 class="text-2xl font-bold text-center">List Wali Mahasiswa</h2>
 
-    <table class="w-full mt-4">
-        <tr class="rounded bg-red-600 text-white">
-            <th class="p-2 rounded-l-md">NO</th>
-            <th class="p-2">NAMA WALI</th>
-            <th class="p-2">GENDER</th>
-            <th class="p-2">ALAMAT WALI</th>
-            <th class="p-2 rounded-r-md">ACTION</th>
-        </tr>
-
-        <?php
-        include './backend/koneksi.php';
-        $wali = mysqli_query($koneksi, "SELECT * from wali_mahasiswa");
-        $no = 1;
-        foreach ($wali as $row) {
+    <div class="overflow-x-auto mt-4">
+        <table class="table-auto w-full">
+            <tr class="rounded bg-red-600 text-white">
+                <th class="p-2 rounded-l-md">NO</th>
+                <th class="p-2">NAMA WALI</th>
+                <th class="p-2">GENDER</th>
+                <th class="p-2">ALAMAT WALI</th>
+                <th class="p-2 rounded-r-md">ACTION</th>
+            </tr>
+            <?php
+            include './backend/koneksi.php';
+            $wali = mysqli_query($koneksi, "SELECT * from wali_mahasiswa");
+            $no = 1;
+            foreach ($wali as $row) {
             $jenis_kelamin = $row['jenis_kelamin'] == 'P' ? 'Perempuan' : 'Laki-Laki';
             echo "<tr class='border-b'>
                     <td class='p-2 border text-center'>$no</td>
@@ -137,7 +135,8 @@ if ($_SESSION['$status'] != "ADMIN") {
             $no++;
         } 
         ?>
-    </table>
+        </table>
+    </div>
 </div>
 
 <div id="modal" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -189,6 +188,7 @@ function closeModal() {
     document.getElementById('modal').style.display = 'none';
 }
 </script>
+
 </div>
 </div>
 </body>
