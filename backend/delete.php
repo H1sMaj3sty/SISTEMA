@@ -9,7 +9,7 @@ if (filter_var($id_mhs, FILTER_VALIDATE_INT)) {
     $stmt->execute();
     header("location: ../index-admin.php");
 } else {
-    header("location: ../notvalid.php");
+    header("location: ../cred/notvalid.php");
 }
 
 

@@ -14,6 +14,6 @@ $stmt->execute();
 $id_wali = $stmt->insert_id;
 $_SESSION['id_wali'] = $id_wali;
 
-header("location: ../form-mhs.php");
+header("location: ../form-edit/form-mhs.php");
 
 ?>

@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['$status'] != "ADMIN") {
-    header('Location: notuser.php');
+    header('Location: ./cred/notuser.php');
 }
 ?>
 
@@ -42,12 +42,12 @@ if ($_SESSION['$status'] != "ADMIN") {
     <table class="w-full">
         <tr>
         <td colspan="2" class="p-2 text-center">
-            <button type="button" onclick="window.location.href='form-wali.php';" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Tambah Data</button>
+            <button type="button" onclick="window.location.href='./form-edit/form-wali.php';" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Tambah Data</button>
         </td>
     </tr>
         <tr>
         <td colspan="2" class="p-2 text-center">
-            <button type="button" onclick="window.location.href='form-tambah-mhs.php';" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Tambah Data Yang Sudah Ada</button>
+            <button type="button" onclick="window.location.href='./form-edit/form-tambah-mhs.php';" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Tambah Data Yang Sudah Ada</button>
         </td>
     </tr>
 </table>
@@ -87,7 +87,7 @@ if ($_SESSION['$status'] != "ADMIN") {
             <td class='p-2 border'>" . $row['nama_wali']."</td>
             <td class='p-2 border'>" . $row['alamat'] . "</td>
             <td class='p-2 flex justify-center border'>
-            <form action='form-edit.php' method='post'>
+            <form action='./form-edit/form-edit.php' method='post'>
                 <input type='hidden' name='id_mhs' value='" . $row['id_mhs'] . "'>
                 <button type='submit' class='bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded  mr-1'>EDIT</button>
             </form>
@@ -127,10 +127,10 @@ if ($_SESSION['$status'] != "ADMIN") {
                     <td class='p-2 border'>" . $jenis_kelamin . "</td>
                     <td class='p-2 border'>" . $row['alamat_wali'] . "</td>
                     <td class='p-2 flex justify-center border'>
-                    <form action='form-edit-wali.php' method='post'>
+                    <form action='./form-edit/form-edit-wali.php' method='post'>
                     <input type='hidden' name='id_wali' value='" . $row['id_wali'] . "'>
                     <button type='submit' class='bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded  mr-1'>EDIT</button>
-                </form>
+                    </form>
                     <a href='#' onclick='openModalWali(event, " . $row['id_wali'] . ")' class='bg-red-700 hover:bg-gray-600 text-white px-2 py-1 rounded ml-1'>DELETE</a>
                     </td>
                     </tr>";

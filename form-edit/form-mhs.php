@@ -6,6 +6,20 @@ if ($_SESSION['$status'] != "ADMIN") {
 }
 ?>
 
+<?php
+include '../backend/koneksi.php';
+if(isset($_SESSION['id_wali'])) {
+    $id_wali = $_SESSION['id_wali'];
+    $id_wali= filter_var($id_wali, FILTER_SANITIZE_NUMBER_INT);
+
+    if(!filter_var($id_wali, FILTER_VALIDATE_INT)) {
+        header("location: ../cred/notvalid.php");
+    }
+} else {
+    header("location: ../cred/notvalid.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +33,9 @@ if ($_SESSION['$status'] != "ADMIN") {
 
 <body class="bg-gray-100">
 <div class="container mx-auto px-4 py-8">
-<form method="post" action="./backend/simpan-tambah-data.php" class="bg-white shadow-lg rounded p-4">
+<form method="post" action="../backend/simpan.php" class="bg-white shadow-lg rounded p-4">
 <h2 class="text-2xl font-bold text-center">Mahasiswa</h2>
+    <input type="hidden" value="<?php echo $id_wali; ?>" name="id_wali">
         <table class="w-full">
             <tr class="border-b">
                 <td class="w-1/4 p-2 text-left font-semibold">NIM</td>
@@ -50,10 +65,6 @@ if ($_SESSION['$status'] != "ADMIN") {
             <tr class="border-b">
                 <td class="w-1/4 p-2 text-left font-semibold">ALAMAT</td>
                 <td class="w-3/4 p-2"><input type="text" name="alamat" required class="w-full border-2 rounded px-2 py-1"></td>
-            </tr>
-            <tr class="border-b">
-                <td class="w-1/4 p-2 text-left font-semibold">NAMA WALI</td>
-                <td class="w-3/4 p-2"><input type="text" name="nama_wali" required class="w-full border-2 rounded px-2 py-1"></td>
             </tr>
             <tr>
                 <td colspan="2" class="p-2 text-center">

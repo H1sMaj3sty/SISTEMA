@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['$status'] != "ADMIN") {
-    header('Location: notuser.php');
+    header('Location: ../cred/notuser.php');
 }
 ?>
 
@@ -19,7 +19,7 @@ if ($_SESSION['$status'] != "ADMIN") {
 
 <body class="bg-gray-100">
 <div class="container mx-auto px-4 py-8">
-<form method="post" action="./backend/simpan-wali.php" class="bg-white shadow-lg rounded p-4">
+<form method="post" action="../backend/simpan-wali.php" class="bg-white shadow-lg rounded p-4">
 <h2 class="text-2xl font-bold text-center">Wali</h2>
         <table class="w-full">
             <tr class="border-b">

@@ -27,7 +27,7 @@
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4" type="submit">
                 Login
             </button>
-            <p class="text-center">Don't have an account? <a href="signup.php" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Sign Up</a></p>
+            <p class="text-center">Don't have an account? <a href="./cred/signup.php" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Sign Up</a></p>
         </div>
     </form>
 </div>

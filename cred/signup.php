@@ -9,7 +9,7 @@
 <body class="bg-gray-200">
 
 <div class="container mx-auto flex justify-center items-center h-screen">
-    <form action="./backend/submit-signup.php" method="post" class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+    <form action="../backend/submit-signup.php" method="post" class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
             <h2 class="text-center text-2xl mb-4">Sign Up Page</h2>
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -27,7 +27,7 @@
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4" type="submit">
                 Sign Up
             </button>
-            <p class="text-center"> <a href="index.php" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Login</a></p>
+            <p class="text-center"> <a href="../index.php" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Login</a></p>
         </div>
     </form>
 </div>

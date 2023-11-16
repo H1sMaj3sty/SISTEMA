@@ -9,6 +9,6 @@ if (filter_var($id_wali, FILTER_VALIDATE_INT)) {
     $stmt->execute();
     header("location: ../index-admin.php");
 } else {
-    header("location: ../notvalid.php");
+    header("location: ../cred/notvalid.php");
 }
 ?>
