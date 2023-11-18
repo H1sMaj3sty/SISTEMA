@@ -18,9 +18,9 @@ if (mysqli_num_rows($name_result) < 1) {
     exit();
 }
 
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
+$row = $name_result->fetch_assoc();
 $id_wali = $row['id_wali'];
+$name_result->free();
 
 $stmt = $koneksi->prepare("INSERT INTO mahasiswa (nim, nama, jurusan, jenis_kelamin, alamat, id_wali) VALUES (?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssi", $nim, $nama, $jurusan, $jenis_kelamin, $alamat, $id_wali);
